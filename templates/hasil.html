@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Hasil Rekomendasi</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.container {
+    background: #fff;
+    padding: 40px 30px;
+    border-radius: 20px;
+    text-align: center;
+    width: 400px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+strong {
+    color: #667eea;
+}
+
+form {
+    margin-top: 25px;
+}
+
+select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+}
+
+button {
+    margin-top: 15px;
+    padding: 12px;
+    width: 100%;
+    border: none;
+    border-radius: 10px;
+    background: #667eea;
+    color: white;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #5a67d8;
+}
+
+a {
+    display: inline-block;
+    margin-top: 20px;
+    text-decoration: none;
+    color: #667eea;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>🎓 Hasil Rekomendasi</h1>
+
+    <p>
+        Jurusan yang direkomendasikan:<br>
+        <strong>{{ jurusan }}</strong>
+    </p>
+
+    <!-- ✅ FORM FEEDBACK -->
+    <form action="/submit_feedback" method="POST">
+
+        <!-- kirim id request -->
+        <input type="hidden" name="request_id" value="{{ request_id }}">
+
+        <label>Rating Rekomendasi:</label>
+        <select name="rating" required>
+            <option value="">-- Pilih --</option>
+            <option value="5">⭐⭐⭐⭐⭐ Sangat Sesuai</option>
+            <option value="4">⭐⭐⭐⭐ Sesuai</option>
+            <option value="3">⭐⭐⭐ Cukup</option>
+            <option value="2">⭐⭐ Kurang</option>
+            <option value="1">⭐ Tidak Sesuai</option>
+        </select>
+
+        <textarea name="feedback" rows="3"
+            placeholder="Komentar (opsional)"></textarea>
+
+        <button type="submit">Kirim Feedback</button>
+    </form>
+
+    <a href="/index">⬅ Kembali ke Halaman Utama</a>
+</div>
+
+</body>
+</html>

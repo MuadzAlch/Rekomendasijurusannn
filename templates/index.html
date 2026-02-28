@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="Input Nilai Akademik" />
+    <meta name="author" content="Your Website" />
+    <title>Input Nilai Akademik - SB Admin</title>
+    <link href="{{ url_for('static', filename='../static/style.css') }}" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-light">
+    {% include 'header.html' %}
+    {% with messages = get_flashed_messages() %}
+    {% if messages %}
+    <script>
+        alert("{{ messages[0] }}");
+    </script>
+    {% endif %}
+    {% endwith %}
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <div class="card shadow-lg border-0 rounded-lg">
+                    <div class="card-header">
+                        <h3 class="text-center font-weight-light my-4">Input Nilai Akademik</h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="POST" action="/index">
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="matematika" name="mat" min="0" max="100"
+                                    placeholder="Matematika" required>
+                                <label for="matematika">Matematika</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="tik" name="tik" min="0" max="100"
+                                    placeholder="TIK / Prakarya" required>
+                                <label for="tik">TIK</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="seni" name="seni" min="0" max="100"
+                                    placeholder="Seni" required>
+                                <label for="seni">Seni</label>
+                            </div>
+                            <div class="form-floating mb-3">
+                                <input type="number" class="form-control" id="bindo" name="bindo" min="0" max="100"
+                                    placeholder="B. Indonesia" required>
+                                <label for="bindo">B. Indonesia</label>
+                            </div>
+                            <div class="d-flex align-items-center justify-content-between mt-4 mb-0">
+                                <button type="submit" class="btn btn-primary">Ikuti Tes Minat</button>
+                            </div>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        crossorigin="anonymous"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+</body>
+
+</html>

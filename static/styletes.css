@@ -1,0 +1,112 @@
+/* Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f5f6fa;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 30px;
+    color: #2f3640;
+}
+
+h2 {
+    margin-top: 25px;
+    margin-bottom: 15px;
+    color: #4070f4;
+}
+
+form {
+    max-width: 800px;
+    margin: 0 auto 50px auto;
+    padding: 25px 30px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+p {
+    margin: 8px 0;
+    font-size: 0.95rem;
+    color: #333333;
+}
+
+/* Radio buttons modern */
+input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"] + label {
+    display: inline-block;
+    padding: 8px 14px;
+    margin: 3px 5px 8px 0;
+    font-size: 0.9rem;
+    border-radius: 6px;
+    border: 1px solid #d1d1d1;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+input[type="radio"]:checked + label {
+    background-color: #4070f4;
+    color: #fff;
+    border-color: #4070f4;
+}
+
+input[type="radio"]:hover + label {
+    background-color: #e1eaff;
+}
+
+/* Submit button modern */
+button[type="submit"] {
+    display: block;
+    width: 100%;
+    padding: 12px 0;
+    margin-top: 25px;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: #fff;
+    background-color: #4070f4;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button[type="submit"]:hover {
+    background-color: #0e4bf1;
+}
+
+/* Grouping each question */
+form p {
+    font-weight: 500;
+}
+
+form input[type="radio"] + label {
+    text-align: center;
+}
+
+/* Make sections more distinct */
+form h2 {
+    border-bottom: 2px solid #e0e0e0;
+    padding-bottom: 5px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    form {
+        padding: 20px;
+    }
+
+    input[type="radio"] + label {
+        font-size: 0.85rem;
+        padding: 6px 10px;
+    }
+}
+

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Akun</title>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='../static/styleauth.css') }}" />
+    <!-- Boxicons CSS -->
+    <link href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css" rel="stylesheet"/>
+</head>
+<body>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <script>
+                alert("{{ messages[0] }}");
+            </script>
+        {% endif %}
+    {% endwith %}
+    <div class="container">
+        <header>Login</header>
+        <form method="POST" action="/login">
+            <div class="field">
+                <div class="input-field">
+                    <input type="text" name="username" placeholder="Username" required />
+                </div>
+            </div>
+            <div class="field create-password">
+                <div class="input-field">
+                    <input type="password" name="password" placeholder="Password" required />
+                    <i class="bx bx-hide show-hide"></i>
+                </div>
+            </div>
+            <div class="input-field button">
+                <input type="submit" value="Login" />
+            </div>
+            <p class="text-center mt-2">Belum punya akun? <a href="/register">Daftar di sini</a></p>
+        </form>
+    </div>
+
+    <!-- JS -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

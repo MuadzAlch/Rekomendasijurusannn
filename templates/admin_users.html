@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <title>Dashboard - Data Siswa</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/simple-datatables@7.1.2/dist/style.min.css" rel="stylesheet" />
+    <link href="../static/style.css" rel="stylesheet" />
+    <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
+</head>
+
+<body class="sb-nav-fixed">
+
+    {% include 'header_admin.html' %}
+
+    <div id="layoutSidenav_content">
+        <main>
+
+            <div class="container-fluid px-4 mt-4">
+
+                <h1 class="h3 mb-4 text-gray-800">Data Siswa</h1>
+
+                <!-- ✅ POPUP FLASH MESSAGE -->
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                <script>
+                    alert("{{ messages[0] }}");
+                </script>
+                {% endif %}
+                {% endwith %}
+
+                <div class="card shadow mb-4">
+                    <div class="card-body">
+                        {% if session['role'] == 'admin' %}
+                        <button class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#addUserModal">
+                            + Tambah User
+                        </button>
+                        {% endif %}
+                        <div class="table-responsive">
+                            <table class="table table-bordered" width="100%" cellspacing="0">
+
+                                <thead class="table-primary">
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Username</th>
+                                        <th>Role</th>
+                                        <th>Aksi</th>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    {% for user in users %}
+                                    <tr>
+
+                                        <td>{{ user['id'] }}</td>
+                                        <td>{{ user['username'] }}</td>
+                                        <td>{{ user['role'] }}</td>
+
+                                        <td>
+                                            {% if user['id'] != session['user_id'] %}
+                                            <form action="/admin/delete_user/{{ user['id'] }}" method="POST"
+                                                style="display:inline;">
+                                                {% if session['role'] == 'admin' %}
+                                                <button type="submit" class="btn btn-danger btn-sm"
+                                                    onclick="return confirm('Yakin hapus user ini?')">
+
+                                                    🗑 Hapus
+                                                </button>
+                                                {% endif %}
+
+                                            </form>
+                                            {% else %}
+                                            <span class="text-muted">Akun Aktif</span>
+                                            {% endif %}
+                                        </td>
+
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+<!-- Modal Tambah User -->
+<div class="modal fade" id="addUserModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <form action="/admin/add_user" method="POST">
+
+        <div class="modal-header">
+          <h5 class="modal-title">Tambah User</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body">
+
+          <label>Username</label>
+          <input type="text" name="username" class="form-control mb-2" required>
+
+          <label>Email</label>
+          <input type="email" name="email" class="form-control mb-2">
+
+          <label>Password</label>
+          <input type="password" name="password" class="form-control mb-2" required>
+
+          <label>Role</label>
+          <select name="role" class="form-control">
+              <option value="user">User</option>
+              <option value="kesiswaan">Kesiswaan</option>
+              <option value="admin">Admin</option>
+          </select>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="submit" class="btn btn-success">Simpan</button>
+        </div>
+
+      </form>
+
+    </div>
+  </div>
+</div>
+
+</body>
+
+</html>

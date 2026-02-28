@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tes Minat SMK</title>
+  <link rel="stylesheet" href="../static/styletes.css">
+    <link rel="stylesheet" href="../static/style.css">
+
+</head>
+<body>
+    {% include 'header.html' %} 
+  <form method="POST">
+   <div class="text-center my-4">
+    <h1 class="fw-bold" style="font-size: 2rem; margin-bottom: 0;">Tes Minat dan Bakat</h1>
+    <h2 class="text-primary" style="font-size: 1.8rem; font-weight: 600; margin-top: 0.3rem;">
+        SMK Negeri 8 Garut
+    </h2>
+</div>
+
+
+    <!-- ================= TKR ================= -->
+    <p>1. Saya suka mempelajari mesin kendaraan.</p>
+    <div class="radio-group">
+      <input type="radio" id="tkr1-1" name="tkr1" value="1" required><label for="tkr1-1">👎 Tidak Suka</label>
+      <input type="radio" id="tkr1-2" name="tkr1" value="2"><label for="tkr1-2">😐 Netral</label>
+      <input type="radio" id="tkr1-3" name="tkr1" value="3"><label for="tkr1-3">👍 Suka</label>
+    </div>
+
+    <p>2. Saya tertarik memperbaiki motor atau mobil.</p>
+    <div class="radio-group">
+      <input type="radio" id="tkr2-1" name="tkr2" value="1" required><label for="tkr2-1">👎 Tidak Suka</label>
+      <input type="radio" id="tkr2-2" name="tkr2" value="2"><label for="tkr2-2">😐 Netral</label>
+      <input type="radio" id="tkr2-3" name="tkr2" value="3"><label for="tkr2-3">👍 Suka</label>
+    </div>
+
+    <p>3. Saya senang praktek langsung bongkar pasang mesin.</p>
+    <div class="radio-group">
+      <input type="radio" id="tkr3-1" name="tkr3" value="1" required><label for="tkr3-1">👎 Tidak Suka</label>
+      <input type="radio" id="tkr3-2" name="tkr3" value="2"><label for="tkr3-2">😐 Netral</label>
+      <input type="radio" id="tkr3-3" name="tkr3" value="3"><label for="tkr3-3">👍 Suka</label>
+    </div>
+
+    <p>4. Saya suka belajar tentang sistem kelistrikan kendaraan.</p>
+    <div class="radio-group">
+      <input type="radio" id="tkr4-1" name="tkr4" value="1" required><label for="tkr4-1">👎 Tidak Suka</label>
+      <input type="radio" id="tkr4-2" name="tkr4" value="2"><label for="tkr4-2">😐 Netral</label>
+      <input type="radio" id="tkr4-3" name="tkr4" value="3"><label for="tkr4-3">👍 Suka</label>
+    </div>
+
+    <p>5. Saya ingin bekerja di bengkel otomotif.</p>
+    <div class="radio-group">
+      <input type="radio" id="tkr5-1" name="tkr5" value="1" required><label for="tkr5-1">👎 Tidak Suka</label>
+      <input type="radio" id="tkr5-2" name="tkr5" value="2"><label for="tkr5-2">😐 Netral</label>
+      <input type="radio" id="tkr5-3" name="tkr5" value="3"><label for="tkr5-3">👍 Suka</label>
+    </div>
+
+    <!-- ================= TKJ ================= -->
+    <p>6. Saya suka mempelajari jaringan komputer.</p>
+    <div class="radio-group">
+      <input type="radio" id="tkj1-1" name="tkj1" value="1" required><label for="tkj1-1">👎 Tidak Suka</label>
+      <input type="radio" id="tkj1-2" name="tkj1" value="2"><label for="tkj1-2">😐 Netral</label>
+      <input type="radio" id="tkj1-3" name="tkj1" value="3"><label for="tkj1-3">👍 Suka</label>
+    </div>
+
+    <p>7. Saya tertarik merakit komputer.</p>
+    <div class="radio-group">
+      <input type="radio" id="tkj2-1" name="tkj2" value="1" required><label for="tkj2-1">👎 Tidak Suka</label>
+      <input type="radio" id="tkj2-2" name="tkj2" value="2"><label for="tkj2-2">😐 Netral</label>
+      <input type="radio" id="tkj2-3" name="tkj2" value="3"><label for="tkj2-3">👍 Suka</label>
+    </div>
+
+    <p>8. Saya senang belajar sistem operasi & software.</p>
+    <div class="radio-group">
+      <input type="radio" id="tkj3-1" name="tkj3" value="1" required><label for="tkj3-1">👎 Tidak Suka</label>
+      <input type="radio" id="tkj3-2" name="tkj3" value="2"><label for="tkj3-2">😐 Netral</label>
+      <input type="radio" id="tkj3-3" name="tkj3" value="3"><label for="tkj3-3">👍 Suka</label>
+    </div>
+
+    <p>9. Saya suka mencoba memperbaiki komputer/laptop.</p>
+    <div class="radio-group">
+      <input type="radio" id="tkj4-1" name="tkj4" value="1" required><label for="tkj4-1">👎 Tidak Suka</label>
+      <input type="radio" id="tkj4-2" name="tkj4" value="2"><label for="tkj4-2">😐 Netral</label>
+      <input type="radio" id="tkj4-3" name="tkj4" value="3"><label for="tkj4-3">👍 Suka</label>
+    </div>
+
+    <p>10. Saya ingin bekerja di bidang IT dan jaringan.</p>
+    <div class="radio-group">
+      <input type="radio" id="tkj5-1" name="tkj5" value="1" required><label for="tkj5-1">👎 Tidak Suka</label>
+      <input type="radio" id="tkj5-2" name="tkj5" value="2"><label for="tkj5-2">😐 Netral</label>
+      <input type="radio" id="tkj5-3" name="tkj5" value="3"><label for="tkj5-3">👍 Suka</label>
+    </div>
+
+    <!-- ================= MM ================= -->
+    <p>11. Saya suka menggambar atau desain grafis.</p>
+    <div class="radio-group">
+      <input type="radio" id="mm1-1" name="mm1" value="1" required><label for="mm1-1">👎 Tidak Suka</label>
+      <input type="radio" id="mm1-2" name="mm1" value="2"><label for="mm1-2">😐 Netral</label>
+      <input type="radio" id="mm1-3" name="mm1" value="3"><label for="mm1-3">👍 Suka</label>
+    </div>
+
+    <p>12. Saya tertarik membuat video atau animasi.</p>
+    <div class="radio-group">
+      <input type="radio" id="mm2-1" name="mm2" value="1" required><label for="mm2-1">👎 Tidak Suka</label>
+      <input type="radio" id="mm2-2" name="mm2" value="2"><label for="mm2-2">😐 Netral</label>
+      <input type="radio" id="mm2-3" name="mm2" value="3"><label for="mm2-3">👍 Suka</label>
+    </div>
+
+    <p>13. Saya suka mengedit foto dengan software desain.</p>
+    <div class="radio-group">
+      <input type="radio" id="mm3-1" name="mm3" value="1" required><label for="mm3-1">👎 Tidak Suka</label>
+      <input type="radio" id="mm3-2" name="mm3" value="2"><label for="mm3-2">😐 Netral</label>
+      <input type="radio" id="mm3-3" name="mm3" value="3"><label for="mm3-3">👍 Suka</label>
+    </div>
+
+    <p>14. Saya tertarik membuat website atau aplikasi desain.</p>
+    <div class="radio-group">
+      <input type="radio" id="mm4-1" name="mm4" value="1" required><label for="mm4-1">👎 Tidak Suka</label>
+      <input type="radio" id="mm4-2" name="mm4" value="2"><label for="mm4-2">😐 Netral</label>
+      <input type="radio" id="mm4-3" name="mm4" value="3"><label for="mm4-3">👍 Suka</label>
+    </div>
+
+    <p>15. Saya ingin bekerja di bidang kreatif digital.</p>
+    <div class="radio-group">
+      <input type="radio" id="mm5-1" name="mm5" value="1" required><label for="mm5-1">👎 Tidak Suka</label>
+      <input type="radio" id="mm5-2" name="mm5" value="2"><label for="mm5-2">😐 Netral</label>
+      <input type="radio" id="mm5-3" name="mm5" value="3"><label for="mm5-3">👍 Suka</label>
+    </div>
+
+    <!-- ================= AP ================= -->
+    <p>16. Saya suka mengatur dokumen atau arsip.</p>
+    <div class="radio-group">
+      <input type="radio" id="ap1-1" name="ap1" value="1" required><label for="ap1-1">👎 Tidak Suka</label>
+      <input type="radio" id="ap1-2" name="ap1" value="2"><label for="ap1-2">😐 Netral</label>
+      <input type="radio" id="ap1-3" name="ap1" value="3"><label for="ap1-3">👍 Suka</label>
+    </div>
+
+    <p>17. Saya tertarik bekerja di kantor.</p>
+    <div class="radio-group">
+      <input type="radio" id="ap2-1" name="ap2" value="1" required><label for="ap2-1">👎 Tidak Suka</label>
+      <input type="radio" id="ap2-2" name="ap2" value="2"><label for="ap2-2">😐 Netral</label>
+      <input type="radio" id="ap2-3" name="ap2" value="3"><label for="ap2-3">👍 Suka</label>
+    </div>
+
+    <p>18. Saya suka mengetik dan membuat laporan.</p>
+    <div class="radio-group">
+      <input type="radio" id="ap3-1" name="ap3" value="1" required><label for="ap3-1">👎 Tidak Suka</label>
+      <input type="radio" id="ap3-2" name="ap3" value="2"><label for="ap3-2">😐 Netral</label>
+      <input type="radio" id="ap3-3" name="ap3" value="3"><label for="ap3-3">👍 Suka</label>
+    </div>
+
+    <p>19. Saya tertarik mengatur jadwal atau agenda.</p>
+    <div class="radio-group">
+      <input type="radio" id="ap4-1" name="ap4" value="1" required><label for="ap4-1">👎 Tidak Suka</label>
+      <input type="radio" id="ap4-2" name="ap4" value="2"><label for="ap4-2">😐 Netral</label>
+      <input type="radio" id="ap4-3" name="ap4" value="3"><label for="ap4-3">👍 Suka</label>
+    </div>
+
+    <p>20. Saya ingin bekerja sebagai sekretaris atau staf administrasi.</p>
+    <div class="radio-group">
+      <input type="radio" id="ap5-1" name="ap5" value="1" required><label for="ap5-1">👎 Tidak Suka</label>
+      <input type="radio" id="ap5-2" name="ap5" value="2"><label for="ap5-2">😐 Netral</label>
+      <input type="radio" id="ap5-3" name="ap5" value="3"><label for="ap5-3">👍 Suka</label>
+    </div>
+
+    <!-- ================= SUBMIT ================= -->
+    <button type="submit">📩 Kirim Jawaban</button>
+  </form>
+</body>
+</html>
