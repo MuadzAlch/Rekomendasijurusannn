@@ -17,15 +17,16 @@ app = Flask(__name__)
 app.secret_key = 'supersecretkey'
 
 # ================= DATABASE MYSQL =================
+import os
+
 def get_db_connection():
     return mysql.connector.connect(
-        host=os.environ.get("mysql.railway.internal"),
-        user=os.environ.get("root"),
-        password=os.environ.get("AyRpgYvjqhInWuJMcJpvxLJxHtKFzjpW"),
-        database=os.environ.get("railway"),
-        port=os.environ.get("3306")
+        host=os.environ.get("MYSQLHOST"),
+        user=os.environ.get("MYSQLUSER"),
+        password=os.environ.get("MYSQLPASSWORD"),
+        database=os.environ.get("MYSQLDATABASE"),
+        port=os.environ.get("MYSQLPORT")
     )
-
 # ================= LOAD MODEL =================
 model = joblib.load('model/model_rekomendasi_smk.pkl')
 
