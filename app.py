@@ -19,10 +19,11 @@ app.secret_key = 'supersecretkey'
 # ================= DATABASE MYSQL =================
 def get_db_connection():
     return mysql.connector.connect(
-        host="localhost",
-        user="root",
-        password="",
-        database="db_rekomendasi_smk"
+        host=os.environ.get("mysql.railway.internal"),
+        user=os.environ.get("root"),
+        password=os.environ.get("AyRpgYvjqhInWuJMcJpvxLJxHtKFzjpW"),
+        database=os.environ.get("railway"),
+        port=os.environ.get("3306")
     )
 
 # ================= LOAD MODEL =================
