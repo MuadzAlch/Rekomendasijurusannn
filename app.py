@@ -20,12 +20,24 @@ app.secret_key = 'supersecretkey'
 import os
 
 def get_db_connection():
+    host = os.environ.get("MYSQLHOST")
+    user = os.environ.get("MYSQLUSER")
+    password = os.environ.get("MYSQLPASSWORD")
+    database = os.environ.get("MYSQLDATABASE")  # bisa juga MYSQL_DATABASE
+    port = os.environ.get("MYSQLPORT")
+
+    if None in [host, user, password, database, port]:
+        raise ValueError(
+            "Environment variable MYSQLHOST, MYSQLUSER, MYSQLPASSWORD, MYSQLDATABASE, "
+            "atau MYSQLPORT belum di-set!"
+        )
+
     return mysql.connector.connect(
-        host=os.environ.get("MYSQLHOST"),
-        user=os.environ.get("MYSQLUSER"),
-        password=os.environ.get("MYSQLPASSWORD"),
-        database=os.environ.get("MYSQLDATABASE"),
-        port=os.environ.get("MYSQLPORT")
+        host=host,
+        user=user,
+        password=password,
+        database=database,
+        port=int(port)
     )
 # ================= LOAD MODEL =================
 model = joblib.load('model/model_rekomendasi_smk.pkl')
