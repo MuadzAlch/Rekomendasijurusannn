@@ -21,23 +21,14 @@ import os
 from urllib.parse import urlparse
 import mysql.connector
 
+
 def get_db_connection():
-    # pakai PUBLIC URL supaya bisa diakses lintas project
-    url = os.environ.get("MYSQL_PUBLIC_URL") or "mysql://root:KcUnfRnOLbppxwlzcqrRBvIzvOBhzmIS@switchyard.proxy.rlwy.net:11784/railway"
-
-    result = urlparse(url)
-    host = result.hostname
-    port = result.port
-    user = result.username
-    password = result.password
-    database = result.path.lstrip("/")
-
     return mysql.connector.connect(
-        host=host,
-        user=user,
-        password=password,
-        database=database,
-        port=port
+        host=os.environ["MYSQLHOST"],
+        user=os.environ["MYSQLUSER"],
+        password=os.environ["MYSQLPASSWORD"],
+        database=os.environ["MYSQLDATABASE"],
+        port=int(os.environ["MYSQLPORT"])
     )
 # ================= LOAD MODEL =================
 model = joblib.load('model/model_rekomendasi_smk.pkl')
