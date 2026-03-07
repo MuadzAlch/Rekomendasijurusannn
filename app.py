@@ -21,22 +21,14 @@ import os
 from urllib.parse import urlparse
 import mysql.connector
 
-from mysql.connector import Error
-
 def get_db_connection():
-    try:
-        conn = mysql.connector.connect(
-            host=os.environ["DB_HOST"],
-            user=os.environ["DB_USER"],
-            password=os.environ["DB_PASSWORD"],
-            database=os.environ["DB_NAME"],
-            port=int(os.environ.get("DB_PORT", 3306))
-        )
-        return conn
-    except Error as e:
-        # Kalau gagal koneksi, langsung print error
-        print(f"MySQL Connection Error: {e}")
-        return None
+    return mysql.connector.connect(
+        host=os.environ.get("MYSQLHOST"),
+        user=os.environ.get("MYSQLUSER"),
+        password=os.environ.get("MYSQLPASSWORD"),
+        database=os.environ.get("MYSQLDATABASE"),
+        port=int(os.environ.get("MYSQLPORT", 3306))
+    )
 # ================= LOAD MODEL =================
 model = joblib.load('model/model_rekomendasi_smk.pkl')
 
