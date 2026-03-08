@@ -25,8 +25,16 @@ print("USER:", os.environ.get("MYSQLUSER"))
 print("PASS:", os.environ.get("MYSQLPASSWORD"))
 print("DB:", os.environ.get("MYSQLDATABASE"))
 print("PORT:", os.environ.get("MYSQLPORT"))
-def get_db_connection(): return mysql.connector.connect( host=os.environ.get("MYSQLHOST"), user=os.environ.get("MYSQLUSER"), password=os.environ.get("MYSQLPASSWORD"), database=os.environ.get("MYSQLDATABASE"), port=int(os.environ.get("MYSQLPORT", 3306)) )
-    
+
+def get_db_connection():
+    return mysql.connector.connect(
+        host=os.environ.get("MYSQLHOST"),
+        user=os.environ.get("MYSQLUSER"),
+        password=os.environ.get("MYSQLPASSWORD"),
+        database=os.environ.get("MYSQLDATABASE"),
+        port=int(os.environ.get("MYSQLPORT", 3306)),
+        use_pure=True  # <-- tambah ini
+    )
 # ================= LOAD MODEL =================
 model = joblib.load('model/model_rekomendasi_smk.pkl')
 
