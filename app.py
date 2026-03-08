@@ -23,11 +23,11 @@ import mysql.connector
 
 def get_db_connection():
     return mysql.connector.connect(
-        host=os.environ.get("MYSQLHOST"),
-        user=os.environ.get("MYSQLUSER"),
-        password=os.environ.get("MYSQLPASSWORD"),
-        database=os.environ.get("MYSQLDATABASE"),
-        port=int(os.environ.get("MYSQLPORT", 3306))
+        host="mysql.railway.internal",        # ganti sesuai host MySQL-mu
+        user="root",             # ganti sesuai username
+        password="KcUnfRnOLbppxwlzcqrRBvIzvOBhzmIS",   # ganti sesuai password
+        database="railway",       # ganti sesuai nama database
+        port=3306                # ganti sesuai port jika berbeda
     )
 # ================= LOAD MODEL =================
 model = joblib.load('model/model_rekomendasi_smk.pkl')
