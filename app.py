@@ -26,14 +26,44 @@ print("PASS:", os.environ.get("MYSQLPASSWORD"))
 print("DB:", os.environ.get("MYSQLDATABASE"))
 print("PORT:", os.environ.get("MYSQLPORT"))
 
-def get_db_connection():
-    return mysql.connector.connect(
-        host="switchyard.proxy.rlwy.net",   # host dari Railway
-        user="root",                         # user Railway
-        password="AyRpgYvjqhInWuJMcJpvxLJxHtKFzjpW",  # password Railway
-        database="railway",                  # database Railway
-        port=11784                           # port dari Railway, bukan 3306
-    )
+import mysql.connector
+from mysql.connector import Error
+import time
+
+def get_db_connection(retries=3, delay=5):
+    """
+    Membuat koneksi ke MySQL Railway dengan retry.
+    Hardcode host, user, password, database, dan port.
+    """
+    host = "switchyard.proxy.rlwy.net"
+    user = "root"
+    password = "AyRpgYvjqhInWuJMcJpvxLJxHtKFzjpW"
+    database = "railway"
+    port = 11784
+    
+    attempt = 0
+    while attempt < retries:
+        try:
+            print(f"[INFO] Mencoba koneksi ke MySQL: {host}:{port}, user={user}, db={database}")
+            conn = mysql.connector.connect(
+                host=host,
+                user=user,
+                password=password,
+                database=database,
+                port=port
+            )
+            if conn.is_connected():
+                print("[SUCCESS] Koneksi ke MySQL berhasil!")
+                return conn
+        except Error as e:
+            attempt += 1
+            print(f"[ERROR] Koneksi gagal ({attempt}/{retries}): {e}")
+            if attempt < retries:
+                print(f"[INFO] Menunggu {delay} detik sebelum retry...")
+                time.sleep(delay)
+            else:
+                print("[ERROR] Semua percobaan koneksi gagal. Periksa host, port, user, password, dan network.")
+                raise e
 # ================= LOAD MODEL =================
 model = joblib.load('model/model_rekomendasi_smk.pkl')
 
