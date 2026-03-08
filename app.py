@@ -27,14 +27,12 @@ print("DB:", os.environ.get("MYSQLDATABASE"))
 print("PORT:", os.environ.get("MYSQLPORT"))
 
 def get_db_connection():
-    url = urlparse(os.environ.get("MYSQL_URL"))
     return mysql.connector.connect(
-        host=url.hostname,
-        user=url.username,
-        password=url.password,
-        database=url.path[1:],
-        port=url.port or 3306,
-        use_pure=True
+        host="switchyard.proxy.rlwy.net",   # host dari Railway
+        user="root",                         # user Railway
+        password="AyRpgYvjqhInWuJMcJpvxLJxHtKFzjpW",  # password Railway
+        database="railway",                  # database Railway
+        port=11784                           # port dari Railway, bukan 3306
     )
 # ================= LOAD MODEL =================
 model = joblib.load('model/model_rekomendasi_smk.pkl')
